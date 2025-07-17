@@ -3,7 +3,6 @@
 import Foundation
 import FirebaseCrashlytics
 import FirebaseAnalytics
-import Crypto
 import Utils9
 
 private extension CharacterSet {
@@ -27,12 +26,16 @@ public struct FirebaseLogger: LogAdapter {
         Crashlytics.crashlytics().record(error: error, userInfo: userInfo)
     }
     
-    public func log(event: String) {
+    public func log(event: String, parameters: [String: String]) {
         let event = String(event.map { CharacterSet.eventSafeCharacters.contains($0) ? $0 : "_" })
-        Analytics.logEvent(event, parameters: nil)
+        Analytics.logEvent(event, parameters: parameters)
     }
     
     public func log(info: String) {
         print("🔵 \(info)")
+    }
+    
+    public func set(property: String, for key: String) {
+        Analytics.setUserProperty(property, forName: key)
     }
 }
