@@ -31,8 +31,10 @@ public struct FirebaseLogger: LogAdapter {
         Analytics.logEvent(event, parameters: parameters)
     }
     
+    public func log(warning: String) {
+    }
+
     public func log(info: String) {
-        print("🔵 \(info)")
     }
     
     public func set(property: String, for key: String) {
