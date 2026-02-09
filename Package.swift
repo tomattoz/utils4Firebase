@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "FirebaseUtils9", targets: ["FirebaseUtils9"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "11.0.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "12.0.0"),
         .package(url: "https://github.com/tomattoz/utils", branch: "master"),
     ],
     targets: [
